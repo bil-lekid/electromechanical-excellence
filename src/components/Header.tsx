@@ -37,11 +37,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">IS</span>
+              <span className="text-primary-foreground font-bold text-lg">PP</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-foreground text-lg leading-tight">INDUSTRIAL</span>
-              <span className="text-primary text-sm font-medium leading-tight">SUPPLY CO.</span>
+              <span className="font-bold text-foreground text-lg leading-tight">PRIMA PUTRA</span>
+              <span className="text-primary text-sm font-medium leading-tight">PERKASA</span>
             </div>
           </a>
 
