@@ -14,7 +14,96 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blogs: {
+        Row: {
+          author: string | null
+          content_en: string
+          content_id: string
+          created_at: string
+          excerpt_en: string | null
+          excerpt_id: string | null
+          id: string
+          image_url: string | null
+          is_published: boolean | null
+          published_at: string | null
+          title_en: string
+          title_id: string
+          updated_at: string
+        }
+        Insert: {
+          author?: string | null
+          content_en: string
+          content_id: string
+          created_at?: string
+          excerpt_en?: string | null
+          excerpt_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_published?: boolean | null
+          published_at?: string | null
+          title_en: string
+          title_id: string
+          updated_at?: string
+        }
+        Update: {
+          author?: string | null
+          content_en?: string
+          content_id?: string
+          created_at?: string
+          excerpt_en?: string | null
+          excerpt_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_published?: boolean | null
+          published_at?: string | null
+          title_en?: string
+          title_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          brand: string | null
+          category: string
+          created_at: string
+          description_en: string | null
+          description_id: string | null
+          id: string
+          image_url: string | null
+          is_featured: boolean | null
+          name_en: string
+          name_id: string
+          updated_at: string
+        }
+        Insert: {
+          brand?: string | null
+          category: string
+          created_at?: string
+          description_en?: string | null
+          description_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          name_en: string
+          name_id: string
+          updated_at?: string
+        }
+        Update: {
+          brand?: string | null
+          category?: string
+          created_at?: string
+          description_en?: string | null
+          description_id?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          name_en?: string
+          name_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

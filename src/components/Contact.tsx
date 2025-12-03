@@ -1,20 +1,22 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left - Contact Info */}
           <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contact Us</span>
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">{t("contactUs")}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
-              Let's Discuss Your Requirements
+              {t("discussRequirements")}
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Our sales team is ready to help you find the right products and 
-              provide competitive quotations for your procurement needs.
+              {t("contactDesc")}
             </p>
 
             <div className="space-y-6">
@@ -23,7 +25,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Office Address</h4>
+                  <h4 className="font-semibold text-foreground mb-1">{t("officeAddress")}</h4>
                   <p className="text-muted-foreground">
                     Jl. Industri Raya No. 123<br />
                     Jakarta Industrial Park, 12345
@@ -36,7 +38,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Phone Number</h4>
+                  <h4 className="font-semibold text-foreground mb-1">{t("phoneNumber")}</h4>
                   <p className="text-muted-foreground">
                     +62 21 1234 5678<br />
                     +62 812 3456 7890 (WhatsApp)
@@ -49,10 +51,10 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Email</h4>
+                  <h4 className="font-semibold text-foreground mb-1">{t("email")}</h4>
                   <p className="text-muted-foreground">
-                    sales@industrialsupply.com<br />
-                    support@industrialsupply.com
+                    sales@primaptra.com<br />
+                    support@primaptra.com
                   </p>
                 </div>
               </div>
@@ -62,10 +64,10 @@ const Contact = () => {
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Business Hours</h4>
+                  <h4 className="font-semibold text-foreground mb-1">{t("businessHours")}</h4>
                   <p className="text-muted-foreground">
-                    Monday - Friday: 08:00 - 17:00<br />
-                    Saturday: 08:00 - 12:00
+                    Senin - Jumat: 08:00 - 17:00<br />
+                    Sabtu: 08:00 - 12:00
                   </p>
                 </div>
               </div>
@@ -74,28 +76,28 @@ const Contact = () => {
 
           {/* Right - Contact Form */}
           <div className="bg-card border border-border p-8">
-            <h3 className="text-xl font-bold text-foreground mb-6">Request a Quote</h3>
+            <h3 className="text-xl font-bold text-foreground mb-6">{t("requestAQuote")}</h3>
             
             <form className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Full Name *
+                    {t("fullName")} *
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 bg-background border border-input text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Your name"
+                    placeholder={t("yourName")}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Company Name *
+                    {t("companyName")} *
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 bg-background border border-input text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Company name"
+                    placeholder={t("companyNamePlaceholder")}
                   />
                 </div>
               </div>
@@ -103,34 +105,34 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
+                    {t("emailAddress")} *
                   </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 bg-background border border-input text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="email@company.com"
+                    placeholder={t("emailPlaceholder")}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
+                    {t("phoneNumber")} *
                   </label>
                   <input
                     type="tel"
                     className="w-full px-4 py-3 bg-background border border-input text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="+62 xxx xxxx xxxx"
+                    placeholder={t("phonePlaceholder")}
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Product Requirements *
+                  {t("productRequirements")} *
                 </label>
                 <textarea
                   rows={4}
                   className="w-full px-4 py-3 bg-background border border-input text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  placeholder="Please describe the products you need, quantities, and any specific requirements..."
+                  placeholder={t("requirementsPlaceholder")}
                 />
               </div>
 
@@ -138,7 +140,7 @@ const Contact = () => {
                 type="submit" 
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6"
               >
-                Submit Inquiry
+                {t("submitInquiry")}
               </Button>
             </form>
           </div>
