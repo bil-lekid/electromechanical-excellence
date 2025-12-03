@@ -1,6 +1,10 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-16">
@@ -17,7 +21,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-secondary-foreground/70 text-sm mb-4">
-              Your trusted partner for electrical and mechanical industrial supplies since 2009.
+              {t("footerDesc")}
             </p>
             <div className="space-y-2 text-sm text-secondary-foreground/70">
               <div className="flex items-center gap-2">
@@ -26,7 +30,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>sales@industrialsupply.com</span>
+                <span>sales@primaptra.com</span>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5" />
@@ -37,33 +41,34 @@ const Footer = () => {
 
           {/* Products */}
           <div>
-            <h4 className="font-bold mb-6">Products</h4>
+            <h4 className="font-bold mb-6">{t("products")}</h4>
             <ul className="space-y-3 text-sm text-secondary-foreground/70">
-              <li><a href="#" className="hover:text-primary transition-colors">Electrical Components</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Mechanical Parts</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Instrumentation</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Cables & Wiring</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Motors & Pumps</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Automation Systems</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("electricalComponents")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("mechanicalParts")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("instrumentation")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("cablesWiring")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("motorsPumps")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("automationControl")}</a></li>
             </ul>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-6">Quick Links</h4>
+            <h4 className="font-bold mb-6">{t("quickLinks")}</h4>
             <ul className="space-y-3 text-sm text-secondary-foreground/70">
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#products" className="hover:text-primary transition-colors">Product Catalog</a></li>
-              <li><a href="#why-us" className="hover:text-primary transition-colors">Why Choose Us</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms & Conditions</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">{t("aboutUs")}</a></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">{t("productCatalog")}</Link></li>
+              <li><Link to="/blogs" className="hover:text-primary transition-colors">{t("blogs")}</Link></li>
+              <li><a href="#why-us" className="hover:text-primary transition-colors">{t("whyChooseUs")}</a></li>
+              <li><a href="#contact" className="hover:text-primary transition-colors">{t("contact")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("termsConditions")}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{t("privacyPolicy")}</a></li>
             </ul>
           </div>
 
           {/* Brands */}
           <div>
-            <h4 className="font-bold mb-6">Authorized Brands</h4>
+            <h4 className="font-bold mb-6">{t("authorizedBrands")}</h4>
             <div className="grid grid-cols-2 gap-3 text-sm text-secondary-foreground/70">
               <span>ABB</span>
               <span>Schneider</span>
@@ -82,8 +87,8 @@ const Footer = () => {
       <div className="border-t border-secondary-foreground/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/60">
-            <span>© 2024 PT Prima Putra Perkasa. All rights reserved.</span>
-            <span>ISO 9001:2015 Certified Company</span>
+            <span>© 2024 PT Prima Putra Perkasa. {t("allRightsReserved")}</span>
+            <span>{t("isoCertified")}</span>
           </div>
         </div>
       </div>

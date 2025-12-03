@@ -1,50 +1,52 @@
 import { Truck, Shield, HeadphonesIcon, Wallet, Clock, Package } from "lucide-react";
-
-const features = [
-  {
-    icon: Shield,
-    title: "100% Authentic Products",
-    description: "All products are sourced directly from manufacturers or authorized distributors with full warranty.",
-  },
-  {
-    icon: Truck,
-    title: "Fast & Reliable Delivery",
-    description: "Same-day dispatch for in-stock items. Nationwide delivery with real-time tracking.",
-  },
-  {
-    icon: Wallet,
-    title: "Competitive Pricing",
-    description: "Best market prices with flexible payment terms and volume discounts for repeat orders.",
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "Technical Expertise",
-    description: "Our engineers provide consultation to help you select the right products for your applications.",
-  },
-  {
-    icon: Package,
-    title: "Large Stock Availability",
-    description: "Over 10,000 SKUs ready for immediate delivery from our centralized warehouse.",
-  },
-  {
-    icon: Clock,
-    title: "Quick Response Time",
-    description: "Quotations within 2 hours, order processing same day, dedicated account managers.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhyChooseUs = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Shield,
+      title: t("authenticProducts"),
+      description: t("authenticDesc"),
+    },
+    {
+      icon: Truck,
+      title: t("fastDelivery"),
+      description: t("fastDeliveryDesc"),
+    },
+    {
+      icon: Wallet,
+      title: t("competitivePricingTitle"),
+      description: t("competitivePricingDesc"),
+    },
+    {
+      icon: HeadphonesIcon,
+      title: t("technicalExpertise"),
+      description: t("technicalExpertiseDesc"),
+    },
+    {
+      icon: Package,
+      title: t("largeStock"),
+      description: t("largeStockDesc"),
+    },
+    {
+      icon: Clock,
+      title: t("quickResponse"),
+      description: t("quickResponseDesc"),
+    },
+  ];
+
   return (
     <section id="why-us" className="py-20 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">{t("whyChooseUsTitle")}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-            Your Procurement Made Simple
+            {t("procurementSimple")}
           </h2>
           <p className="text-secondary-foreground/80 text-lg">
-            We understand the pressures of procurement departments. Our solutions are 
-            designed to make your job easier while ensuring quality and cost-efficiency.
+            {t("whyChooseDesc")}
           </p>
         </div>
 
@@ -70,16 +72,16 @@ const WhyChooseUs = () => {
         <div className="mt-16 bg-primary/10 border border-primary/30 p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">2 Hours</div>
-              <div className="text-secondary-foreground/80">Average Quote Response</div>
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">2 Jam</div>
+              <div className="text-secondary-foreground/80">{t("avgQuoteResponse")}</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">15-30%</div>
-              <div className="text-secondary-foreground/80">Cost Savings vs. Competitors</div>
+              <div className="text-secondary-foreground/80">{t("costSavings")}</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
-              <div className="text-secondary-foreground/80">Customer Satisfaction</div>
+              <div className="text-secondary-foreground/80">{t("customerSatisfaction")}</div>
             </div>
           </div>
         </div>
