@@ -9,11 +9,11 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">IS</span>
+                <span className="text-primary-foreground font-bold text-lg">PP</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg leading-tight">INDUSTRIAL</span>
-                <span className="text-primary text-sm font-medium leading-tight">SUPPLY CO.</span>
+                <span className="font-bold text-lg leading-tight">PRIMA PUTRA</span>
+                <span className="text-primary text-sm font-medium leading-tight">PERKASA</span>
               </div>
             </div>
             <p className="text-secondary-foreground/70 text-sm mb-4">
@@ -82,7 +82,7 @@ const Footer = () => {
       <div className="border-t border-secondary-foreground/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/60">
-            <span>© 2024 Industrial Supply Co. All rights reserved.</span>
+            <span>© 2024 PT Prima Putra Perkasa. All rights reserved.</span>
             <span>ISO 9001:2015 Certified Company</span>
           </div>
         </div>
