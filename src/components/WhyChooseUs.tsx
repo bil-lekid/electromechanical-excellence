@@ -1,5 +1,45 @@
-import { Truck, Shield, HeadphonesIcon, Wallet, Clock, Package } from "lucide-react";
+import { Truck, Shield, HeadphonesIcon, Wallet, Clock, Package, TrendingUp, Award, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect, useState, useRef } from "react";
+
+const AnimatedNumber = ({ target, suffix = "" }: { target: number; suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let start = 0;
+          const duration = 2000;
+          const increment = target / (duration / 16);
+          
+          const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+              setCount(target);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(start));
+            }
+          }, 16);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target, hasAnimated]);
+
+  return (
+    <div ref={ref} className="text-4xl md:text-5xl font-bold text-primary">
+      {count}{suffix}
+    </div>
+  );
+};
 
 const WhyChooseUs = () => {
   const { t } = useLanguage();
@@ -37,6 +77,12 @@ const WhyChooseUs = () => {
     },
   ];
 
+  const stats = [
+    { icon: Clock, value: 2, suffix: " " + t("hours"), label: t("avgQuoteResponse") },
+    { icon: TrendingUp, value: 25, suffix: "%", label: t("costSavings") },
+    { icon: Award, value: 98, suffix: "%", label: t("customerSatisfaction") },
+  ];
+
   return (
     <section id="why-us" className="py-20 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4">
@@ -52,14 +98,17 @@ const WhyChooseUs = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="flex gap-4">
+            <div 
+              key={index} 
+              className="flex gap-4 p-6 bg-secondary-foreground/5 hover:bg-secondary-foreground/10 transition-all duration-300 group"
+            >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-primary/20 flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                   <feature.icon className="w-6 h-6 text-primary" />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
                 <p className="text-secondary-foreground/70 text-sm leading-relaxed">
                   {feature.description}
                 </p>
@@ -68,21 +117,16 @@ const WhyChooseUs = () => {
           ))}
         </div>
 
-        {/* Value proposition banner */}
+        {/* Value proposition banner with animated numbers */}
         <div className="mt-16 bg-primary/10 border border-primary/30 p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">2 Jam</div>
-              <div className="text-secondary-foreground/80">{t("avgQuoteResponse")}</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">15-30%</div>
-              <div className="text-secondary-foreground/80">{t("costSavings")}</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
-              <div className="text-secondary-foreground/80">{t("customerSatisfaction")}</div>
-            </div>
+            {stats.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <stat.icon className="w-8 h-8 text-primary mb-4" />
+                <AnimatedNumber target={stat.value} suffix={stat.suffix} />
+                <div className="text-secondary-foreground/80 mt-2">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
