@@ -1,11 +1,14 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import BrandLogos from "@/components/BrandLogos";
 import About from "@/components/About";
 import Products from "@/components/Products";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import Testimonials from "@/components/Testimonials";
 import Clients from "@/components/Clients";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => {
   return (
@@ -13,13 +16,16 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <BrandLogos />
         <Clients />
         <About />
         <Products />
         <WhyChooseUs />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
+      <FloatingCTA />
     </div>
   );
 };

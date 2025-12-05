@@ -20,20 +20,65 @@ const translations: Translations = {
   requestQuote: { id: "Minta Penawaran", en: "Request Quote" },
   trustedPartner: { id: "Mitra Industri Terpercaya Anda", en: "Your Trusted Industrial Partner" },
   
-  // Hero
+  // Hero - Enhanced value proposition
   electricalMechanicalSupplier: { id: "Supplier Elektrikal & Mekanikal", en: "Electrical & Mechanical Supplier" },
+  heroPainPoint: { 
+    id: "Pengadaan Komponen Elektrikal & Mekanikal Tanpa Drama", 
+    en: "Electrical & Mechanical Procurement Without The Drama" 
+  },
+  heroSubheadline: {
+    id: "Stok tersedia, harga transparan, pengiriman tepat waktu.",
+    en: "Stock available, transparent pricing, on-time delivery."
+  },
+  heroDescription: { 
+    id: "Kami memahami tekanan deadline pengadaan Anda. Dapatkan penawaran dalam 2 jam, produk 100% original dengan garansi, dan pengiriman yang bisa Anda andalkan.", 
+    en: "We understand your procurement deadline pressure. Get quotes in 2 hours, 100% original products with warranty, and delivery you can rely on." 
+  },
+  quoteIn2Hours: { id: "Penawaran 2 Jam", en: "Quote in 2 Hours" },
+  guarantee100Authentic: { id: "100% Produk Asli", en: "100% Authentic Products" },
+  benefitStock: { id: "Stok Ready", en: "Ready Stock" },
+  benefitPrice: { id: "Harga Transparan", en: "Transparent Pricing" },
+  benefitDelivery: { id: "Pengiriman Tepat Waktu", en: "On-Time Delivery" },
+  requestQuoteNow: { id: "Minta Penawaran Sekarang", en: "Request Quote Now" },
   yourComplete: { id: "Solusi", en: "Your Complete" },
   industrialSolutions: { id: "Industri", en: "Industrial Solutions" },
   partner: { id: "Lengkap Anda", en: "Partner" },
-  heroDescription: { 
-    id: "Menyediakan komponen elektrikal dan mekanikal berkualitas tinggi untuk fasilitas manufaktur dan kontraktor. Dipercaya oleh industri terkemuka di seluruh wilayah.", 
-    en: "Providing high-quality electrical and mechanical components to manufacturing facilities and contractors. Trusted by leading industries across the region." 
-  },
   exploreProducts: { id: "Jelajahi Produk", en: "Explore Products" },
   contactSales: { id: "Hubungi Sales", en: "Contact Sales" },
   yearsExperience: { id: "Tahun Pengalaman", en: "Years Experience" },
   activeClients: { id: "Klien Aktif", en: "Active Clients" },
   productsSKU: { id: "SKU Produk", en: "Products SKU" },
+
+  // Brand Logos
+  authorizedDistributorFor: { id: "Distributor Resmi Untuk", en: "Authorized Distributor For" },
+
+  // Testimonials
+  testimonialsTitle: { id: "Testimoni", en: "Testimonials" },
+  trustedByIndustry: { id: "Dipercaya Industri Terkemuka", en: "Trusted by Leading Industries" },
+  testimonialsDesc: { 
+    id: "Lihat apa kata klien kami tentang pengalaman bekerja sama dengan PT Prima Putra Perkasa.", 
+    en: "See what our clients say about their experience working with PT Prima Putra Perkasa." 
+  },
+  purchasingManager: { id: "Purchasing Manager", en: "Purchasing Manager" },
+  procurementHead: { id: "Head of Procurement", en: "Head of Procurement" },
+  maintenanceManager: { id: "Maintenance Manager", en: "Maintenance Manager" },
+  testimonial1: { 
+    id: "Respons cepat dan produk selalu original. Sudah 5 tahun kami percayakan pengadaan komponen elektrikal ke Prima Putra Perkasa.", 
+    en: "Fast response and products are always original. We have trusted our electrical component procurement to Prima Putra Perkasa for 5 years." 
+  },
+  testimonial2: { 
+    id: "Harga kompetitif dengan kualitas yang tidak perlu diragukan lagi. Tim teknis mereka sangat membantu dalam pemilihan produk.", 
+    en: "Competitive prices with unquestionable quality. Their technical team is very helpful in product selection." 
+  },
+  testimonial3: { 
+    id: "Pengiriman selalu tepat waktu, bahkan untuk pesanan mendadak. Partner yang bisa diandalkan untuk kebutuhan maintenance kami.", 
+    en: "Delivery is always on time, even for urgent orders. A reliable partner for our maintenance needs." 
+  },
+
+  // Floating CTA
+  quickQuote: { id: "Quick Quote", en: "Quick Quote" },
+  callNow: { id: "Telepon Sekarang", en: "Call Now" },
+  chatWithUs: { id: "Chat dengan Kami", en: "Chat with Us" },
 
   // About
   aboutUsTitle: { id: "Tentang Kami", en: "About Us" },
@@ -96,6 +141,7 @@ const translations: Translations = {
   quickResponse: { id: "Waktu Respons Cepat", en: "Quick Response Time" },
   quickResponseDesc: { id: "Penawaran dalam 2 jam, pemrosesan pesanan hari yang sama, manajer akun khusus.", en: "Quotations within 2 hours, order processing same day, dedicated account managers." },
   avgQuoteResponse: { id: "Rata-rata Respons Penawaran", en: "Average Quote Response" },
+  hours: { id: "Jam", en: "Hours" },
   costSavings: { id: "Penghematan Biaya vs. Kompetitor", en: "Cost Savings vs. Competitors" },
   customerSatisfaction: { id: "Kepuasan Pelanggan", en: "Customer Satisfaction" },
 
