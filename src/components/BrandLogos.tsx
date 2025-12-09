@@ -1,17 +1,20 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import abbLogo from "@/assets/logos/abb-logo.png";
+import siemensLogo from "@/assets/logos/siemens-logo.png";
+import mitsubishiLogo from "@/assets/logos/mitsubishi-electric-logo.png";
 
 const BrandLogos = () => {
   const { t } = useLanguage();
 
   const brands = [
-    { name: "Schneider Electric", logo: "SCHNEIDER" },
-    { name: "ABB", logo: "ABB" },
-    { name: "Siemens", logo: "SIEMENS" },
-    { name: "Omron", logo: "OMRON" },
-    { name: "Mitsubishi Electric", logo: "MITSUBISHI" },
-    { name: "Phoenix Contact", logo: "PHOENIX" },
-    { name: "SKF", logo: "SKF" },
-    { name: "NSK", logo: "NSK" },
+    { name: "Schneider Electric", logo: null, text: "Schneider Electric" },
+    { name: "ABB", logo: abbLogo, text: null },
+    { name: "Siemens", logo: siemensLogo, text: null },
+    { name: "Omron", logo: null, text: "OMRON" },
+    { name: "Mitsubishi Electric", logo: mitsubishiLogo, text: null },
+    { name: "Phoenix Contact", logo: null, text: "PHOENIX CONTACT" },
+    { name: "SKF", logo: null, text: "SKF" },
+    { name: "NSK", logo: null, text: "NSK" },
   ];
 
   return (
@@ -27,12 +30,20 @@ const BrandLogos = () => {
           {brands.map((brand, index) => (
             <div
               key={index}
-              className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
+              className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer flex items-center justify-center h-12"
               title={brand.name}
             >
-              <div className="px-4 py-2 bg-muted border border-border font-bold text-lg text-muted-foreground hover:text-primary transition-colors">
-                {brand.logo}
-              </div>
+              {brand.logo ? (
+                <img 
+                  src={brand.logo} 
+                  alt={brand.name} 
+                  className="h-8 md:h-10 w-auto object-contain"
+                />
+              ) : (
+                <span className="font-bold text-lg md:text-xl text-muted-foreground hover:text-foreground transition-colors tracking-tight">
+                  {brand.text}
+                </span>
+              )}
             </div>
           ))}
         </div>
