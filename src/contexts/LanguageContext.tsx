@@ -23,8 +23,8 @@ const translations: Translations = {
   // Hero - Enhanced value proposition
   electricalMechanicalSupplier: { id: "Supplier Elektrikal & Mekanikal", en: "Electrical & Mechanical Supplier" },
   heroPainPoint: { 
-    id: "Pengadaan Komponen Elektrikal & Mekanikal Tanpa Drama", 
-    en: "Electrical & Mechanical Procurement Without The Drama" 
+    id: "Solusi Pengadaan Komponen Elektrikal & Mekanikal Terpercaya", 
+    en: "Your Trusted Electrical & Mechanical Components Partner" 
   },
   heroSubheadline: {
     id: "Stok tersedia, harga transparan, pengiriman tepat waktu.",
