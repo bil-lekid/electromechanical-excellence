@@ -7,7 +7,7 @@ const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="relative flex items-center" style={{ minHeight: 'calc(100vh - 108px)', marginTop: '108px' }}>
+    <section id="home" className="relative flex items-center" style={{ height: 'calc(100vh - var(--header-height))', marginTop: 'var(--header-height)' }}>
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img

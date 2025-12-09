@@ -84,7 +84,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 bg-secondary text-secondary-foreground flex items-center" style={{ minHeight: 'calc(100vh - 108px)' }}>
+    <section id="why-us" className="py-20 bg-secondary text-secondary-foreground flex items-center" style={{ minHeight: 'calc(100vh - var(--header-height))' }}>
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">{t("whyChooseUsTitle")}</span>
