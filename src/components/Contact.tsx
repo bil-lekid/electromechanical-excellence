@@ -61,7 +61,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted">
+    <section id="contact" className="py-20 bg-muted flex items-center" style={{ minHeight: 'calc(100vh - 108px)' }}>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left - Contact Info */}
