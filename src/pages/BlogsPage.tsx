@@ -9,6 +9,19 @@ import { useToast } from "@/hooks/use-toast";
 import { Plus, Pencil, Trash2, Search, FileText, Calendar } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { z } from "zod";
+
+const blogSchema = z.object({
+  title_id: z.string().min(1, "Indonesian title is required").max(200, "Title too long"),
+  title_en: z.string().min(1, "English title is required").max(200, "Title too long"),
+  content_id: z.string().min(1, "Indonesian content is required").max(50000, "Content too long"),
+  content_en: z.string().min(1, "English content is required").max(50000, "Content too long"),
+  excerpt_id: z.string().max(500, "Excerpt too long").nullable().optional(),
+  excerpt_en: z.string().max(500, "Excerpt too long").nullable().optional(),
+  image_url: z.union([z.string().url("Invalid URL format"), z.literal("")]).nullable().optional(),
+  author: z.string().max(100, "Author name too long").nullable().optional(),
+  is_published: z.boolean().optional(),
+});
 
 interface Blog {
   id: string;
@@ -62,13 +75,29 @@ const BlogsPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const submitData = {
-      ...formData,
-      published_at: formData.is_published ? new Date().toISOString() : null,
+    
+    const result = blogSchema.safeParse(formData);
+    if (!result.success) {
+      const firstError = result.error.errors[0];
+      toast({ title: t("error"), description: firstError.message, variant: "destructive" });
+      return;
+    }
+
+    const validatedData = {
+      title_id: result.data.title_id,
+      title_en: result.data.title_en,
+      content_id: result.data.content_id,
+      content_en: result.data.content_en,
+      excerpt_id: result.data.excerpt_id || null,
+      excerpt_en: result.data.excerpt_en || null,
+      image_url: result.data.image_url || null,
+      author: result.data.author || null,
+      is_published: result.data.is_published ?? false,
+      published_at: result.data.is_published ? new Date().toISOString() : null,
     };
 
     if (editingBlog) {
-      const { error } = await supabase.from("blogs").update(submitData).eq("id", editingBlog.id);
+      const { error } = await supabase.from("blogs").update(validatedData).eq("id", editingBlog.id);
       if (error) {
         toast({ title: t("error"), description: error.message, variant: "destructive" });
       } else {
@@ -78,7 +107,7 @@ const BlogsPage = () => {
         resetForm();
       }
     } else {
-      const { error } = await supabase.from("blogs").insert([submitData]);
+      const { error } = await supabase.from("blogs").insert([validatedData]);
       if (error) {
         toast({ title: t("error"), description: error.message, variant: "destructive" });
       } else {

@@ -9,6 +9,18 @@ import { useToast } from "@/hooks/use-toast";
 import { Plus, Pencil, Trash2, Search, Package } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { z } from "zod";
+
+const productSchema = z.object({
+  name_id: z.string().min(1, "Indonesian name is required").max(200, "Name too long"),
+  name_en: z.string().min(1, "English name is required").max(200, "Name too long"),
+  description_id: z.string().max(2000, "Description too long").nullable().optional(),
+  description_en: z.string().max(2000, "Description too long").nullable().optional(),
+  category: z.string().min(1, "Category is required").max(100, "Category too long"),
+  brand: z.string().max(100, "Brand too long").nullable().optional(),
+  image_url: z.union([z.string().url("Invalid URL format"), z.literal("")]).nullable().optional(),
+  is_featured: z.boolean().optional(),
+});
 
 interface Product {
   id: string;
@@ -57,8 +69,27 @@ const ProductsPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const result = productSchema.safeParse(formData);
+    if (!result.success) {
+      const firstError = result.error.errors[0];
+      toast({ title: t("error"), description: firstError.message, variant: "destructive" });
+      return;
+    }
+
+    const validatedData = {
+      name_id: result.data.name_id,
+      name_en: result.data.name_en,
+      category: result.data.category,
+      description_id: result.data.description_id || null,
+      description_en: result.data.description_en || null,
+      brand: result.data.brand || null,
+      image_url: result.data.image_url || null,
+      is_featured: result.data.is_featured ?? false,
+    };
+
     if (editingProduct) {
-      const { error } = await supabase.from("products").update(formData).eq("id", editingProduct.id);
+      const { error } = await supabase.from("products").update(validatedData).eq("id", editingProduct.id);
       if (error) {
         toast({ title: t("error"), description: error.message, variant: "destructive" });
       } else {
@@ -68,7 +99,7 @@ const ProductsPage = () => {
         resetForm();
       }
     } else {
-      const { error } = await supabase.from("products").insert([formData]);
+      const { error } = await supabase.from("products").insert([validatedData]);
       if (error) {
         toast({ title: t("error"), description: error.message, variant: "destructive" });
       } else {
