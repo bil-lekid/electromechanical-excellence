@@ -46,7 +46,7 @@ const Products = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-muted">
+    <section id="products" className="py-20 bg-muted flex items-center" style={{ minHeight: 'calc(100vh - 108px)' }}>
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">{t("ourProducts")}</span>
