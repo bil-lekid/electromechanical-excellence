@@ -18,29 +18,29 @@ const BrandLogos = () => {
   ];
 
   return (
-    <section className="py-12 bg-background border-y border-border">
+    <section className="py-8 sm:py-12 bg-background border-y border-border">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <span className="text-muted-foreground text-sm font-medium uppercase tracking-wider">
+        <div className="text-center mb-6 sm:mb-8">
+          <span className="text-muted-foreground text-xs sm:text-sm font-medium uppercase tracking-wider">
             {t("authorizedDistributorFor")}
           </span>
         </div>
         
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
           {brands.map((brand, index) => (
             <div
               key={index}
-              className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer flex items-center justify-center h-12"
+              className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer flex items-center justify-center h-8 sm:h-10 md:h-12 w-full"
               title={brand.name}
             >
               {brand.logo ? (
                 <img 
                   src={brand.logo} 
                   alt={brand.name} 
-                  className="h-8 md:h-10 w-auto object-contain"
+                  className="h-6 sm:h-8 md:h-10 w-auto object-contain max-w-full"
                 />
               ) : (
-                <span className="font-bold text-lg md:text-xl text-muted-foreground hover:text-foreground transition-colors tracking-tight">
+                <span className="font-bold text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground hover:text-foreground transition-colors tracking-tight text-center">
                   {brand.text}
                 </span>
               )}

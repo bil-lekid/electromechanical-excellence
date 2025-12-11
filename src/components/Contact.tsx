@@ -61,66 +61,66 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-muted">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Left - Contact Info */}
           <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">{t("contactUs")}</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
+            <span className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider">{t("contactUs")}</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
               {t("discussRequirements")}
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg mb-6 sm:mb-8">
               {t("contactDesc")}
             </p>
 
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary" />
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">{t("officeAddress")}</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("officeAddress")}</h4>
+                  <p className="text-muted-foreground text-sm sm:text-base">
                     Jl. Industri Raya No. 123<br />
                     Jakarta Industrial Park, 12345
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">{t("phoneNumber")}</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("phoneNumber")}</h4>
+                  <p className="text-muted-foreground text-sm sm:text-base">
                     +62 21 1234 5678<br />
                     +62 812 3456 7890 (WhatsApp)
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">{t("email")}</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("email")}</h4>
+                  <p className="text-muted-foreground text-sm sm:text-base">
                     sales@primaptra.com<br />
                     support@primaptra.com
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-primary" />
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">{t("businessHours")}</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("businessHours")}</h4>
+                  <p className="text-muted-foreground text-sm sm:text-base">
                     Senin - Jumat: 08:00 - 17:00<br />
                     Sabtu: 08:00 - 12:00
                   </p>
@@ -130,8 +130,8 @@ const Contact = () => {
           </div>
 
           {/* Right - Contact Form */}
-          <div className="bg-card border border-border p-8">
-            <h3 className="text-xl font-bold text-foreground mb-6">{t("requestAQuote")}</h3>
+          <div className="bg-card border border-border p-5 sm:p-6 lg:p-8">
+            <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">{t("requestAQuote")}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
