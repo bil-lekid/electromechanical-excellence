@@ -29,7 +29,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-muted flex items-center" style={{ minHeight: 'calc(100vh - var(--header-height))' }}>
+    <section id="testimonials" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
