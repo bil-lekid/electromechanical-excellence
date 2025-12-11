@@ -35,9 +35,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left - Content */}
           <div>
             <div className="inline-block">
@@ -68,17 +68,17 @@ const About = () => {
           </div>
 
           {/* Right - Achievements */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {achievements.map((item, index) => (
               <div
                 key={index}
-                className="bg-card border border-border p-6 hover:border-primary/50 transition-colors group"
+                className="bg-card border border-border p-4 sm:p-6 hover:border-primary/50 transition-colors group"
               >
-                <item.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <div className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                <item.icon className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 sm:mb-2">
                   {item.number}
                 </div>
-                <div className="text-muted-foreground text-sm">{item.label}</div>
+                <div className="text-muted-foreground text-xs sm:text-sm">{item.label}</div>
               </div>
             ))}
           </div>

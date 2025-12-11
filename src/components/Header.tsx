@@ -21,35 +21,35 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       {/* Top bar */}
-      <div className="bg-secondary text-secondary-foreground text-sm py-2">
+      <div className="bg-secondary text-secondary-foreground text-xs sm:text-sm py-1.5 sm:py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <a href="tel:+6221123456789" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Phone className="w-4 h-4" />
+          <div className="flex items-center gap-3 sm:gap-6">
+            <a href="tel:+6221123456789" className="flex items-center gap-1.5 sm:gap-2 hover:text-primary transition-colors">
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">+62 21 1234 5678</span>
             </a>
-            <a href="mailto:sales@primaptra.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4" />
+            <a href="mailto:sales@primaptra.com" className="flex items-center gap-1.5 sm:gap-2 hover:text-primary transition-colors">
+              <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">sales@primaptra.com</span>
             </a>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="hidden md:inline text-secondary-foreground/80">{t("trustedPartner")}</span>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <span className="hidden lg:inline text-secondary-foreground/80">{t("trustedPartner")}</span>
             <LanguageToggle />
           </div>
         </div>
       </div>
 
       {/* Main nav */}
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">PP</span>
+          <Link to="/" className="flex items-center gap-2 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm sm:text-lg">PP</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-foreground text-lg leading-tight">PRIMA PUTRA</span>
-              <span className="text-primary text-sm font-medium leading-tight">PERKASA</span>
+              <span className="font-bold text-foreground text-sm sm:text-lg leading-tight">PRIMA PUTRA</span>
+              <span className="text-primary text-xs sm:text-sm font-medium leading-tight">PERKASA</span>
             </div>
           </Link>
 
