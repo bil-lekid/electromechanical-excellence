@@ -12,8 +12,6 @@ const Header = () => {
   const navItems = [
     { label: t("home"), href: "/#home" },
     { label: t("aboutUs"), href: "/#about" },
-    { label: t("products"), href: "/products" },
-    { label: t("blogs"), href: "/blogs" },
     { label: t("whyChooseUs"), href: "/#why-us" },
     { label: t("contact"), href: "/#contact" },
   ];
@@ -24,13 +22,13 @@ const Header = () => {
       <div className="bg-secondary text-secondary-foreground text-xs sm:text-sm py-1.5 sm:py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-3 sm:gap-6">
-            <a href="tel:+6221123456789" className="flex items-center gap-1.5 sm:gap-2 hover:text-primary transition-colors">
+            <a href="tel:+62216246441" className="flex items-center gap-1.5 sm:gap-2 hover:text-primary transition-colors">
               <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">+62 21 1234 5678</span>
+              <span className="hidden sm:inline">(021) 6246441</span>
             </a>
-            <a href="mailto:sales@primaptra.com" className="flex items-center gap-1.5 sm:gap-2 hover:text-primary transition-colors">
+            <a href="mailto:sales@primaputraperkasa.com" className="flex items-center gap-1.5 sm:gap-2 hover:text-primary transition-colors">
               <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">sales@primaptra.com</span>
+              <span className="hidden sm:inline">sales@primaputraperkasa.com</span>
             </a>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
@@ -56,23 +54,13 @@ const Header = () => {
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              item.href.startsWith("/") && !item.href.includes("#") ? (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
-                >
-                  {item.label}
-                </a>
-              )
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-foreground hover:text-primary transition-colors font-medium"
+              >
+                {item.label}
+              </a>
             ))}
             <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
               {t("requestQuote")}
@@ -94,25 +82,14 @@ const Header = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                item.href.startsWith("/") && !item.href.includes("#") ? (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="text-foreground hover:text-primary transition-colors font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-colors font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                )
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
               ))}
               <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
                 {t("requestQuote")}

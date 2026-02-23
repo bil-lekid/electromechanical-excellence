@@ -1,6 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -26,29 +25,28 @@ const Footer = () => {
             <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-secondary-foreground/70">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                <span>+62 21 1234 5678</span>
+                <span>(021) 6246441</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                <span className="break-all">sales@primaptra.com</span>
+                <span className="break-all">sales@primaputraperkasa.com</span>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" />
-                <span>Jl. Industri Raya No. 123, Jakarta</span>
+                <span>Lindeteves Trade Centre Lt. 2 Blok B20 No. 6, Jl. Hayam Wuruk No. 127, Jakarta Barat</span>
               </div>
             </div>
           </div>
 
-          {/* Products */}
+          {/* Layanan */}
           <div className="hidden sm:block">
-            <h4 className="font-bold text-sm sm:text-base mb-4 sm:mb-6">{t("products")}</h4>
+            <h4 className="font-bold text-sm sm:text-base mb-4 sm:mb-6">{t("servicesTitle")}</h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-secondary-foreground/70">
-              <li><a href="#" className="hover:text-primary transition-colors">{t("electricalComponents")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("mechanicalParts")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("instrumentation")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("cablesWiring")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("motorsPumps")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("automationControl")}</a></li>
+              <li><span>{t("electricalComponents")}</span></li>
+              <li><span>{t("mechanicalParts")}</span></li>
+              <li><span>{t("pipeFitting")}</span></li>
+              <li><span>{t("toolsEquipment")}</span></li>
+              <li><span>{t("safetyPPE")}</span></li>
             </ul>
           </div>
 
@@ -57,12 +55,8 @@ const Footer = () => {
             <h4 className="font-bold text-sm sm:text-base mb-4 sm:mb-6">{t("quickLinks")}</h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-secondary-foreground/70">
               <li><a href="#about" className="hover:text-primary transition-colors">{t("aboutUs")}</a></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">{t("productCatalog")}</Link></li>
-              <li><Link to="/blogs" className="hover:text-primary transition-colors">{t("blogs")}</Link></li>
               <li><a href="#why-us" className="hover:text-primary transition-colors">{t("whyChooseUs")}</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">{t("contact")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("termsConditions")}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{t("privacyPolicy")}</a></li>
             </ul>
           </div>
 
@@ -70,14 +64,14 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-sm sm:text-base mb-4 sm:mb-6">{t("authorizedBrands")}</h4>
             <div className="grid grid-cols-2 gap-2 sm:gap-3 text-xs sm:text-sm text-secondary-foreground/70">
-              <span>ABB</span>
               <span>Schneider</span>
-              <span>Siemens</span>
-              <span>Mitsubishi</span>
-              <span>SKF</span>
-              <span>NSK</span>
               <span>Omron</span>
-              <span>Grundfos</span>
+              <span>Panasonic</span>
+              <span>Legrand</span>
+              <span>SKF</span>
+              <span>Bosch</span>
+              <span>Makita</span>
+              <span>Chint</span>
             </div>
           </div>
         </div>
@@ -87,8 +81,8 @@ const Footer = () => {
       <div className="border-t border-secondary-foreground/10">
         <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-xs sm:text-sm text-secondary-foreground/60 text-center sm:text-left">
-            <span>© 2024 PT Prima Putra Perkasa. {t("allRightsReserved")}</span>
-            <span>{t("isoCertified")}</span>
+            <span>© 2025 CV Prima Putra Perkasa. {t("allRightsReserved")}</span>
+            <span>General Supplier Electrical & Mechanical</span>
           </div>
         </div>
       </div>

@@ -7,14 +7,14 @@ const BrandLogos = () => {
   const { t } = useLanguage();
 
   const brands = [
-    { name: "Schneider Electric", logo: null, text: "Schneider Electric" },
-    { name: "ABB", logo: abbLogo, text: null },
-    { name: "Siemens", logo: siemensLogo, text: null },
+    { name: "Schneider Electric", logo: null, text: "SCHNEIDER" },
     { name: "Omron", logo: null, text: "OMRON" },
-    { name: "Mitsubishi Electric", logo: mitsubishiLogo, text: null },
-    { name: "Phoenix Contact", logo: null, text: "PHOENIX CONTACT" },
+    { name: "Panasonic", logo: null, text: "PANASONIC" },
+    { name: "Legrand", logo: null, text: "LEGRAND" },
     { name: "SKF", logo: null, text: "SKF" },
-    { name: "NSK", logo: null, text: "NSK" },
+    { name: "Bosch", logo: null, text: "BOSCH" },
+    { name: "Makita", logo: null, text: "MAKITA" },
+    { name: "Chint", logo: null, text: "CHINT" },
   ];
 
   return (
