@@ -51,19 +51,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const checkAdminRole = async (userId: string) => {
-    const { data, error } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userId)
-      .eq("role", "admin")
-      .maybeSingle();
-    
-    if (!error && data) {
-      setIsAdmin(true);
-    } else {
-      setIsAdmin(false);
-    }
+  const checkAdminRole = async (_userId: string) => {
+    // Admin role check disabled - no user_roles table yet
+    setIsAdmin(false);
   };
 
   const signIn = async (email: string, password: string) => {

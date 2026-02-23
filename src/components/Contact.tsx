@@ -44,7 +44,6 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // For now, just show success - actual submission can be implemented later
       toast.success(t('inquirySubmitted') || 'Thank you! Your inquiry has been submitted.');
       setFormData({
         fullName: '',
@@ -82,8 +81,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("officeAddress")}</h4>
                   <p className="text-muted-foreground text-sm sm:text-base">
-                    Jl. Industri Raya No. 123<br />
-                    Jakarta Industrial Park, 12345
+                    Lindeteves Trade Centre Lt. 2 Blok B20 No. 6<br />
+                    Jl. Hayam Wuruk No. 127, Jakarta Barat
                   </p>
                 </div>
               </div>
@@ -95,8 +94,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("phoneNumber")}</h4>
                   <p className="text-muted-foreground text-sm sm:text-base">
-                    +62 21 1234 5678<br />
-                    +62 812 3456 7890 (WhatsApp)
+                    (021) 6246441<br />
+                    +62 878-8557-2522 (WhatsApp)
                   </p>
                 </div>
               </div>
@@ -108,8 +107,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{t("email")}</h4>
                   <p className="text-muted-foreground text-sm sm:text-base">
-                    sales@primaptra.com<br />
-                    support@primaptra.com
+                    sales@primaputraperkasa.com
                   </p>
                 </div>
               </div>

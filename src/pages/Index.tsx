@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import BrandLogos from "@/components/BrandLogos";
 import About from "@/components/About";
-import Products from "@/components/Products";
+
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import Clients from "@/components/Clients";
@@ -19,7 +19,7 @@ const Index = () => {
         <BrandLogos />
         <Clients />
         <About />
-        <Products />
+        
         <WhyChooseUs />
         <Testimonials />
         <Contact />

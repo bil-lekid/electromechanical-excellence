@@ -7,8 +7,8 @@ const About = () => {
   const achievements = [
     {
       icon: Award,
-      number: "ISO 9001:2015",
-      label: t("certifiedQuality"),
+      number: "20+",
+      label: t("yearsExperience"),
     },
     {
       icon: TrendingUp,

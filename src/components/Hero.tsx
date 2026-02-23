@@ -79,7 +79,7 @@ const Hero = () => {
           {/* Quick stats */}
           <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-primary-foreground/20 grid grid-cols-3 gap-4 sm:gap-8">
             <div className="group text-center sm:text-left">
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground">15+</div>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground">20+</div>
               <div className="text-primary-foreground/70 text-xs sm:text-sm">{t("yearsExperience")}</div>
             </div>
             <div className="group text-center sm:text-left">

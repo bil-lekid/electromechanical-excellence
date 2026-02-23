@@ -31,8 +31,8 @@ const translations: Translations = {
     en: "Stock available, transparent pricing, on-time delivery."
   },
   heroDescription: { 
-    id: "Kami memahami tekanan deadline pengadaan Anda. Dapatkan penawaran dalam 2 jam, produk 100% original dengan garansi, dan pengiriman yang bisa Anda andalkan.", 
-    en: "We understand your procurement deadline pressure. Get quotes in 2 hours, 100% original products with warranty, and delivery you can rely on." 
+    id: "Dengan pengalaman lebih dari 20 tahun, kami menyediakan beragam spare part listrik & mekanik dari brand terpercaya. Harga kompetitif, tanpa minimum order, pengiriman cepat.", 
+    en: "With over 20 years of experience, we provide a wide range of electrical & mechanical spare parts from trusted brands. Competitive pricing, no minimum order, fast delivery." 
   },
   quoteIn2Hours: { id: "Penawaran 2 Jam", en: "Quote in 2 Hours" },
   guarantee100Authentic: { id: "100% Produk Asli", en: "100% Authentic Products" },
@@ -56,8 +56,12 @@ const translations: Translations = {
   testimonialsTitle: { id: "Testimoni", en: "Testimonials" },
   trustedByIndustry: { id: "Dipercaya Industri Terkemuka", en: "Trusted by Leading Industries" },
   testimonialsDesc: { 
-    id: "Lihat apa kata klien kami tentang pengalaman bekerja sama dengan PT Prima Putra Perkasa.", 
-    en: "See what our clients say about their experience working with PT Prima Putra Perkasa." 
+    id: "Lihat apa kata klien kami tentang pengalaman bekerja sama dengan CV Prima Putra Perkasa.", 
+    en: "See what our clients say about their experience working with CV Prima Putra Perkasa." 
+  },
+  clientsDesc: {
+    id: "Dipercaya oleh berbagai pabrik manufaktur besar sebagai mitra penyedia kebutuhan elektrikal dan mekanikal.",
+    en: "Trusted by various large manufacturing factories as a partner for electrical and mechanical supply needs."
   },
   purchasingManager: { id: "Purchasing Manager", en: "Purchasing Manager" },
   procurementHead: { id: "Head of Procurement", en: "Head of Procurement" },
@@ -82,21 +86,21 @@ const translations: Translations = {
 
   // About
   aboutUsTitle: { id: "Tentang Kami", en: "About Us" },
-  buildingTrust: { id: "Membangun Kepercayaan Melalui Kualitas & Keandalan", en: "Building Trust Through Quality & Reliability" },
+  buildingTrust: { id: "General Supplier Elektrikal & Mekanikal Terpercaya", en: "Trusted General Supplier for Electrical & Mechanical" },
   aboutDesc1: { 
-    id: "Selama lebih dari 15 tahun, kami telah menjadi tulang punggung industri manufaktur dan konstruksi, memasok komponen elektrikal dan mekanikal premium dari merek-merek ternama dunia.", 
-    en: "For over 15 years, we have been the backbone of manufacturing and construction industries, supplying premium electrical and mechanical components from world-renowned brands." 
+    id: "CV. Prima Putra Perkasa adalah perusahaan General Supplier yang bergerak di bidang Electrical dan Mechanical. Didirikan pada tahun 2003, kami memiliki pengalaman lebih dari 20 tahun melayani kebutuhan industri manufaktur dan kontraktor.", 
+    en: "CV. Prima Putra Perkasa is a General Supplier company specializing in Electrical and Mechanical products. Founded in 2003, we have over 20 years of experience serving manufacturing industries and contractors." 
   },
   aboutDesc2: { 
-    id: "Pemahaman kami yang mendalam tentang tantangan pengadaan memungkinkan kami memberikan tidak hanya produk, tetapi solusi komprehensif yang mengoptimalkan rantai pasokan Anda dan mengurangi waktu henti operasional.", 
-    en: "Our deep understanding of procurement challenges allows us to deliver not just products, but comprehensive solutions that optimize your supply chain and reduce operational downtime." 
+    id: "Kualitas barang yang tinggi, keaslian produk, dan kecepatan pengiriman menjadi moto bagi usaha kami. Kami menyediakan beragam spare part listrik & mekanik dari brand terpercaya, termasuk solusi untuk barang custom atau sulit dicari.", 
+    en: "High product quality, authenticity, and fast delivery are our business motto. We provide a wide range of electrical & mechanical spare parts from trusted brands, including solutions for custom or hard-to-find items." 
   },
-  authorizedDistributor: { id: "Distributor resmi untuk merek internasional utama", en: "Authorized distributor for major international brands" },
-  extensiveInventory: { id: "Inventaris luas untuk ketersediaan segera", en: "Extensive inventory for immediate availability" },
-  competitivePricing: { id: "Harga kompetitif dengan diskon volume", en: "Competitive pricing with volume discounts" },
-  expertConsultation: { id: "Konsultasi teknis ahli termasuk", en: "Expert technical consultation included" },
-  certifiedQuality: { id: "Manajemen Kualitas Tersertifikasi", en: "Certified Quality Management" },
-  onTimeDelivery: { id: "Tingkat Pengiriman Tepat Waktu", en: "On-Time Delivery Rate" },
+  authorizedDistributor: { id: "Spare part listrik & mekanik dari brand terpercaya", en: "Electrical & mechanical spare parts from trusted brands" },
+  extensiveInventory: { id: "Solusi untuk barang custom atau sulit dicari", en: "Solutions for custom or hard-to-find items" },
+  competitivePricing: { id: "Harga kompetitif tanpa minimum order", en: "Competitive pricing with no minimum order" },
+  expertConsultation: { id: "Dukungan teknis dan bantuan klaim garansi", en: "Technical support and warranty claim assistance" },
+  certifiedQuality: { id: "Produk Berkualitas Tinggi", en: "High Quality Products" },
+  onTimeDelivery: { id: "Pengiriman Cepat & Fleksibel", en: "Fast & Flexible Delivery" },
   brandPartnerships: { id: "Kemitraan Merek", en: "Brand Partnerships" },
   technicalSupport: { id: "Dukungan Teknis", en: "Technical Support" },
 
@@ -172,7 +176,11 @@ const translations: Translations = {
   },
 
   // Footer
-  footerDesc: { id: "Mitra terpercaya Anda untuk perlengkapan industri elektrikal dan mekanikal sejak 2009.", en: "Your trusted partner for electrical and mechanical industrial supplies since 2009." },
+  footerDesc: { id: "General Supplier Elektrikal & Mekanikal terpercaya sejak 2003.", en: "Trusted Electrical & Mechanical General Supplier since 2003." },
+  servicesTitle: { id: "Layanan Kami", en: "Our Services" },
+  pipeFitting: { id: "Pipa & Fitting", en: "Pipes & Fittings" },
+  toolsEquipment: { id: "Perkakas & Peralatan", en: "Tools & Equipment" },
+  safetyPPE: { id: "Safety & APD", en: "Safety & PPE" },
   quickLinks: { id: "Tautan Cepat", en: "Quick Links" },
   productCatalog: { id: "Katalog Produk", en: "Product Catalog" },
   termsConditions: { id: "Syarat & Ketentuan", en: "Terms & Conditions" },
