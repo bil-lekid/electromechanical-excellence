@@ -60,7 +60,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-muted">
+    <section id="contact" className="min-h-screen flex items-center py-12 sm:py-16 lg:py-20 bg-muted">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Left - Contact Info */}
@@ -204,13 +204,14 @@ const Contact = () => {
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6"
-              >
-                {isSubmitting ? 'Submitting...' : t("submitInquiry")}
-              </Button>
+              <a href="https://wa.me/6287885572522" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  type="button"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6"
+                >
+                  {t("submitInquiry")}
+                </Button>
+              </a>
             </form>
           </div>
         </div>

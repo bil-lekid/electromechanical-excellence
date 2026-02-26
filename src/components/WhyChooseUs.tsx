@@ -84,7 +84,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="why-us" className="py-12 sm:py-16 lg:py-20 bg-secondary text-secondary-foreground">
+    <section id="why-us" className="min-h-screen flex items-center py-12 sm:py-16 lg:py-20 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 lg:mb-16">
           <span className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider">{t("whyChooseUsTitle")}</span>

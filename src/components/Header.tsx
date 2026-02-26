@@ -62,9 +62,11 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              {t("requestQuote")}
-            </Button>
+            <a href="https://wa.me/6287885572522" target="_blank" rel="noopener noreferrer">
+              <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                {t("requestQuote")}
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -91,9 +93,11 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
-                {t("requestQuote")}
-              </Button>
+              <a href="https://wa.me/6287885572522" target="_blank" rel="noopener noreferrer">
+                <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
+                  {t("requestQuote")}
+                </Button>
+              </a>
             </div>
           </div>
         )}

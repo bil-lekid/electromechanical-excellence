@@ -60,20 +60,24 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base px-6 sm:px-8 group w-full sm:w-auto"
-            >
-              {t("requestQuoteNow")}
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-secondary text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto"
-            >
-              {t("contactSales")}
-            </Button>
+            <a href="https://wa.me/6287885572522" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base px-6 sm:px-8 group w-full sm:w-auto"
+              >
+                {t("requestQuoteNow")}
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
+            <a href="https://wa.me/6287885572522" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-secondary text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto"
+              >
+                {t("contactSales")}
+              </Button>
+            </a>
           </div>
 
           {/* Quick stats */}

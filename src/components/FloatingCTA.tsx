@@ -16,7 +16,7 @@ const FloatingCTA = () => {
     {
       icon: Phone,
       label: t("callNow"),
-      href: "tel:+6221XXXXXXX",
+      href: "tel:+62216246441",
       color: "bg-secondary hover:bg-secondary/90",
     },
   ];
@@ -39,13 +39,16 @@ const FloatingCTA = () => {
       </div>
 
       {/* Main WhatsApp button */}
-      <button
+      <a
+        href="https://wa.me/6287885572522"
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={() => setIsOpen(!isOpen)}
         className="bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground p-4 shadow-lg transition-all duration-300 hover:scale-110 animate-pulse hover:animate-none group"
         aria-label="WhatsApp"
       >
         <MessageCircle className={`w-7 h-7 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
-      </button>
+      </a>
 
       {/* Tooltip on hover */}
       <div className="absolute bottom-full right-0 mb-2 bg-card text-card-foreground px-3 py-2 text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-border">
