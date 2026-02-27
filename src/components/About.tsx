@@ -35,7 +35,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center py-12 sm:py-16 lg:py-20 bg-background">
+    <section id="about" className="min-h-screen flex items-center py-12 sm:py-16 lg:py-20 bg-background" aria-label="Tentang CV Prima Putra Perkasa" itemScope itemType="https://schema.org/Organization">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left - Content */}
