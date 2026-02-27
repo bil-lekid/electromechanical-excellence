@@ -7,7 +7,7 @@ const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center py-20 pt-28 md:pt-32 lg:pt-36">
+    <section id="home" className="relative min-h-screen flex items-center py-20 pt-28 md:pt-32 lg:pt-36" aria-label="Hero - CV Prima Putra Perkasa">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img

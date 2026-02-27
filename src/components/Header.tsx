@@ -17,7 +17,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border" role="banner" itemScope itemType="https://schema.org/WPHeader">
       {/* Top bar */}
       <div className="bg-secondary text-secondary-foreground text-xs sm:text-sm py-1.5 sm:py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -39,7 +39,7 @@ const Header = () => {
       </div>
 
       {/* Main nav */}
-      <nav className="container mx-auto px-4 py-3 sm:py-4">
+      <nav className="container mx-auto px-4 py-3 sm:py-4" aria-label="Main navigation">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 sm:gap-3">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary flex items-center justify-center">
