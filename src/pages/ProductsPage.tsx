@@ -1,3 +1,16 @@
-// Placeholder - page hidden for now
-const ProductsPage = () => null;
-export default ProductsPage;
+import { useSearchParams, Link } from 'react-router-dom';
+import { SlidersHorizontal, Search } from 'lucide-react';
+import { useStore } from '@/contexts/StoreContext';
+import { categories, filterProducts } from '@/lib/store';
+import { Breadcrumb, CatalogState, ProductCard } from '@/components/store/StoreUI';
+
+export default function ProductsPage() {
+  const { products, loading, error } = useStore(); const [params, setParams] = useSearchParams();
+  const query = params.get('q') || ''; const category = params.get('category') || ''; const brand = params.get('brand') || '';
+  const sort = params.get('sort') || 'featured'; const ready = params.get('ready') === 'true';
+  const results = filterProducts(products, query, category, brand, ready, sort);
+  const pages = Math.max(1, Math.ceil(results.length / 12)); const page = Math.min(pages, Math.max(1, Math.floor(Number(params.get('page')) || 1)));
+  const update = (key: string, value: string) => { const next = new URLSearchParams(params); if (value) next.set(key, value); else next.delete(key); if (key !== 'page') next.delete('page'); setParams(next); };
+  const brands = [...new Set(products.map(p => p.brand).filter(Boolean))].sort();
+  return <div className="store-container page-space"><Breadcrumb current="Katalog produk" /><div className="page-heading"><span className="eyebrow">INDUSTRIAL SUPPLY</span><h1>{query ? `Hasil pencarian “${query}”` : category || 'Katalog produk'}</h1><p>Temukan produk berdasarkan kebutuhan, merek, dan spesifikasi Anda.</p></div><div className="catalog-layout"><aside className="catalog-filters"><h2><SlidersHorizontal size={17} /> Filter produk</h2><label>Kategori<select value={category} onChange={e => update('category',e.target.value)}><option value="">Semua kategori</option>{[...new Set([...categories, ...products.map(p => p.category)])].map(c => <option key={c}>{c}</option>)}</select></label><label>Merek<select value={brand} onChange={e => update('brand',e.target.value)}><option value="">Semua merek</option>{brands.map(b => <option key={b} value={b!}>{b}</option>)}</select></label><label className="checkbox-label"><input type="checkbox" checked={ready} onChange={e => update('ready', e.target.checked ? 'true' : '')} /> Hanya produk tersedia</label><button className="text-button" onClick={() => setParams({})}>Reset semua filter</button><div className="filter-help"><h3>Belum menemukan produk?</h3><p>Kami bantu mencarikan komponen yang Anda butuhkan.</p><Link to="/contact">Tanya tim sales →</Link></div></aside><div className="catalog-results"><div className="catalog-toolbar"><span>{loading ? 'Memuat...' : `${results.length} produk`}</span><label>Urutkan <select value={sort} onChange={e => update('sort',e.target.value)}><option value="featured">Rekomendasi</option><option value="name">Nama A–Z</option><option value="price-asc">Harga terendah</option><option value="price-desc">Harga tertinggi</option></select></label></div><CatalogState />{!loading && !error && (results.length ? <><div className="product-grid">{results.slice((page-1)*12,page*12).map(p => <ProductCard key={p.id} product={p} />)}</div>{pages > 1 && <nav className="pagination" aria-label="Halaman katalog"><button disabled={page <= 1} onClick={() => update('page',String(page-1))}>Sebelumnya</button><span>{page} / {pages}</span><button disabled={page >= pages} onClick={() => update('page',String(page+1))}>Berikutnya</button></nav>}</> : <div className="empty-state"><Search /><h2>Produk belum ditemukan</h2><p>Coba kata kunci lain atau ubah filter pencarian.</p><button className="store-button secondary" onClick={() => setParams({})}>Lihat semua produk</button></div>)}</div></div></div>;
+}

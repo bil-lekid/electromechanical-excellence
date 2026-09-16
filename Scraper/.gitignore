@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+indoteknik_output/
+*.log
+homepage.html
+rendered_*.html
