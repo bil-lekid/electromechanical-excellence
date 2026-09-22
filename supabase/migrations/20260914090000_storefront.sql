@@ -28,7 +28,8 @@ as $$ select _user_id = auth.uid() and exists (
 revoke all on function public.has_role(uuid, public.app_role) from public, anon;
 grant execute on function public.has_role(uuid, public.app_role) to authenticated;
 
-drop policy "Products are viewable by everyone" on public.products;
+drop policy if exists "Products are viewable by everyone" on public.products;
+drop policy if exists "Anyone can view products" on public.products;
 create policy "Active products are public" on public.products for select to anon, authenticated using (is_active);
 create policy "Admins can read all products" on public.products for select to authenticated using (public.is_admin());
 

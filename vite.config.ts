@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "127.0.0.1",
     port: 8080,
+    watch: {
+      ignored: ["**/Scraper/**", "**/artifacts/**"],
+    },
+  },
+  optimizeDeps: {
+    entries: ["index.html"],
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

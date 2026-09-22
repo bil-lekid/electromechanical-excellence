@@ -69,7 +69,23 @@ py -3.11 -m venv Scraper/.venv
 & .\Scraper\.venv\Scripts\python.exe -m playwright install chromium
 ```
 
-## Tests
+## Website sample (100 products)
+
+`prepare_storefront_sample.py` selects 10 products from each of 10 source categories
+and generates `Scraper/storefront_sample_products.json` for Supabase import.
+Source URLs and tax prices are retained in
+`Scraper/storefront_sample_sources.json`. The scraper database is opened read-only.
+Prices are the scraped base prices; stock and specifications are not inferred.
+`IND-` codes are local identifiers, and `unit` is a generic request unit, not a verified pack size.
+
+The website reads the catalog and images from Supabase in development and production.
+See `README_supabase_import.md` for importing. To regenerate the import input:
+
+```powershell
+& .\Scraper\.venv\Scripts\python.exe Scraper\prepare_storefront_sample.py
+```
+
+## Scraper tests
 
 ```powershell
 Set-Location Scraper
