@@ -50,7 +50,7 @@ const translations: Translations = {
   productsSKU: { id: "SKU Produk", en: "Products SKU" },
 
   // Brand Logos
-  authorizedDistributorFor: { id: "Distributor Resmi Untuk", en: "Authorized Distributor For" },
+  authorizedDistributorFor: { id: "Pilihan Merek", en: "Brand Selection" },
 
   // Testimonials
   testimonialsTitle: { id: "Testimoni", en: "Testimonials" },
@@ -133,7 +133,7 @@ const translations: Translations = {
     en: "We understand the pressures of procurement departments. Our solutions are designed to make your job easier while ensuring quality and cost-efficiency." 
   },
   authenticProducts: { id: "Produk 100% Asli", en: "100% Authentic Products" },
-  authenticDesc: { id: "Semua produk bersumber langsung dari produsen atau distributor resmi dengan garansi penuh.", en: "All products are sourced directly from manufacturers or authorized distributors with full warranty." },
+  authenticDesc: { id: "Konfirmasikan asal produk dan ketentuan garansi pada penawaran.", en: "Confirm product sourcing and warranty terms in your quotation." },
   fastDelivery: { id: "Pengiriman Cepat & Andal", en: "Fast & Reliable Delivery" },
   fastDeliveryDesc: { id: "Pengiriman hari yang sama untuk barang tersedia. Pengiriman nasional dengan pelacakan real-time.", en: "Same-day dispatch for in-stock items. Nationwide delivery with real-time tracking." },
   competitivePricingTitle: { id: "Harga Kompetitif", en: "Competitive Pricing" },
@@ -185,7 +185,7 @@ const translations: Translations = {
   productCatalog: { id: "Katalog Produk", en: "Product Catalog" },
   termsConditions: { id: "Syarat & Ketentuan", en: "Terms & Conditions" },
   privacyPolicy: { id: "Kebijakan Privasi", en: "Privacy Policy" },
-  authorizedBrands: { id: "Merek Resmi", en: "Authorized Brands" },
+  authorizedBrands: { id: "Pilihan Merek", en: "Brand Selection" },
   allRightsReserved: { id: "Hak cipta dilindungi.", en: "All rights reserved." },
   isoCertified: { id: "Perusahaan Bersertifikat ISO 9001:2015", en: "ISO 9001:2015 Certified Company" },
 

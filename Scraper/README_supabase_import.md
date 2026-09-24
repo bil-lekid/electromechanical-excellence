@@ -1,5 +1,35 @@
 # Import the 100 selected products to Supabase
 
+## Full catalog import
+
+Run `node scripts/import-indoteknik-all.mjs` to validate the SQLite catalog and
+downloaded images, then add `--upload` to import all products into the same project.
+Requires Node 24 (built-in SQLite) and the existing server-side service key.
+Do not run multiple full imports simultaneously.
+
+Products are deduplicated by source product ID, with downloaded-image records
+preferred, then longer names and URL order as deterministic tie breakers.
+Existing SKUs retain their IDs, featured flags and categories. New products use
+their first alphabetically sorted source category. Prices are scraped base prices;
+inventory and specifications are not inferred. Missing/placeholder images use an
+empty image URL, compatible with the legacy NOT NULL column and storefront fallback.
+All original source rows and category relationships are archived locally in
+`artifacts/indoteknik-bulk-sources.json`.
+
+Images are uploaded under content-addressed `catalog/` paths with 64 workers and
+verified byte-for-byte through their public URLs. Products are upserted in batches
+of 200 and every batch is read back through public access to verify the stored fields.
+`artifacts/indoteknik-bulk-checkpoint.json` tracks verified image uploads for resume;
+rerunning rechecks and upserts product batches without duplicating SKUs.
+`artifacts/indoteknik-bulk-receipt.json` reports progress and marks `complete` only
+after every product has passed verification. Keep the checkpoint for the same project
+and clear it if remote images are manually removed. The original sample import below
+is separate and limited to 100 products.
+
+After completion, run `node scripts/verify-indoteknik-import.mjs` for a separate,
+read-only public-access audit of every imported SKU, name, price, availability and
+image URL. Results are saved to `artifacts/indoteknik-bulk-verification.json`.
+
 The import reads the existing sample and downloaded images; it does not restart
 the scraper. Product rows go to `public.products`, and images go to the public
 `indoteknik-products` Storage bucket under `sample-100/`.

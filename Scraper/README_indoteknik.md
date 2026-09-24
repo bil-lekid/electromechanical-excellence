@@ -85,6 +85,19 @@ See `README_supabase_import.md` for importing. To regenerate the import input:
 & .\Scraper\.venv\Scripts\python.exe Scraper\prepare_storefront_sample.py
 ```
 
+## Progress log
+
+Monitor a running crawl and save its log lines together with readable tqdm
+snapshots (on count changes and every 30 seconds):
+
+```powershell
+& .\Scraper\.venv\Scripts\python.exe Scraper\monitor_indoteknik.py --log Scraper\indoteknik_resume_20260923_093537.log --output-log Scraper\indoteknik_progress.log
+```
+
+The output log must differ from the source log. `--log-interval` sets the snapshot
+interval in seconds. The default 70,000-product target is a monitoring target,
+not a verified catalog total. Stop the monitor with Ctrl+C when finished.
+
 ## Scraper tests
 
 ```powershell

@@ -26,7 +26,20 @@ await context.route(`${origin}/**`,async route=>{
   if(url.pathname==='/auth/v1/token') return respond({access_token:jwt,refresh_token:'local-test-refresh',expires_in:3600,token_type:'bearer',user});
   if(url.pathname==='/auth/v1/logout') return respond({});
   if(url.pathname==='/rest/v1/rpc/is_admin') return respond(admin);
-  if(url.pathname==='/rest/v1/products') return respond(products);
+  if(url.pathname==='/rest/v1/rpc/catalog_facets') return respond({ categories:[...new Set(products.map(p=>p.category))], brands:[...new Set(products.map(p=>p.brand).filter(Boolean))].sort().map(name=>({name,count:products.filter(p=>p.brand===name).length})) });
+  if(url.pathname==='/rest/v1/products') {
+    let rows=products.filter(p=>p.is_active);
+    for(const field of ['category','brand','availability','id']) {
+      const filter=url.searchParams.get(field);
+      if(filter?.startsWith('eq.')) rows=rows.filter(p=>p[field]===filter.slice(3));
+      if(filter?.startsWith('neq.')) rows=rows.filter(p=>p[field]!==filter.slice(4));
+      if(filter?.startsWith('in.(')) rows=rows.filter(p=>filter.slice(4,-1).split(',').includes(p[field]));
+    }
+    for(const filter of url.searchParams.getAll('search_text')) rows=rows.filter(p=>`${p.name_id} ${p.brand??''} ${p.sku??''} ${p.category}`.toLowerCase().includes(filter.slice(7,-1).toLowerCase()));
+    const total=rows.length, offset=Number(url.searchParams.get('offset')||0), limit=Number(url.searchParams.get('limit')||1000);
+    rows=rows.slice(offset,offset+limit);
+    return route.fulfill({status:200,contentType:'application/json',headers:{'Content-Range':`${offset}-${offset+rows.length-1}/${total}`,'Access-Control-Expose-Headers':'Content-Range'},body:JSON.stringify(rows)});
+  }
   if(url.pathname==='/rest/v1/rpc/submit_quote'){
     if(failSubmit)return respond({message:'Test connection failure',code:'TEST'},503);
     submitted=req.postDataJSON(); return respond(quoteId);
@@ -36,8 +49,8 @@ await context.route(`${origin}/**`,async route=>{
   return respond({message:'Unmocked endpoint'},400);
 });
 const page=await context.newPage();page.setDefaultTimeout(15000);page.setDefaultNavigationTimeout(20000);page.on('pageerror',error=>{errors.push(error.message);console.log('PAGE ERROR',error.message);});
-const base='http://127.0.0.1:8082';
-await page.goto(base,{waitUntil:'domcontentloaded'});await page.getByRole('heading',{name:/Kebutuhan industri/}).waitFor();console.log('PASS home loaded');
+const base=process.env.CATALOG_TEST_BASE || 'http://127.0.0.1:8082';
+await page.goto(base,{waitUntil:'domcontentloaded'});await page.getByRole('heading',{name:/Pengadaan elektrikal/}).waitFor();console.log('PASS home loaded');
 await page.getByRole('searchbox').fill('Omron');
 await page.screenshot({path:'artifacts/search-state.png'});console.log('Search filled',page.url());
 await page.getByRole('button',{name:'Cari',exact:true}).click();
@@ -59,8 +72,10 @@ assert.deepEqual(Object.keys(submitted).sort(),['_contact','_items','_token']);a
 await page.getByRole('link',{name:'Lihat permintaan saya'}).click();await page.getByText('RFQ-44444444',{exact:true}).click();await page.getByText('Miniature Circuit Breaker · 3 pcs',{exact:true}).waitFor();
 await page.goto(base+'/admin');await page.waitForURL(base+'/');
 await page.goto(base+'/about');await page.getByText('CV. Prima Putra Perkasa adalah perusahaan General Supplier',{exact:false}).waitFor();await page.getByRole('button',{name:'English',exact:true}).click();await page.getByText('CV. Prima Putra Perkasa is a General Supplier company',{exact:false}).waitFor();
-await page.goto('http://127.0.0.1:8081');await page.getByText('Pratinjau katalog contoh',{exact:false}).waitFor();await page.screenshot({path:'artifacts/storefront-desktop.png',fullPage:true});
-await page.setViewportSize({width:390,height:844});await page.reload();await page.getByRole('heading',{name:/Kebutuhan industri/}).waitFor();
+if (!process.env.CATALOG_TEST_NO_DEMO) { await page.goto('http://127.0.0.1:8081');await page.getByText('Pratinjau katalog contoh',{exact:false}).waitFor(); }
+await page.screenshot({path:'artifacts/storefront-desktop.png',fullPage:true});
+await page.goto(base);
+await page.setViewportSize({width:390,height:844});await page.reload();await page.getByRole('heading',{name:/Pengadaan elektrikal/}).waitFor();
 assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true);await page.screenshot({path:'artifacts/storefront-mobile.png',fullPage:true});
 await page.getByRole('button',{name:'Menu navigasi',exact:true}).click();await page.getByRole('navigation',{name:'Navigasi utama'}).getByRole('link',{name:'Semua produk',exact:true}).click();await page.getByText('12 produk',{exact:true}).waitFor();
 assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true);

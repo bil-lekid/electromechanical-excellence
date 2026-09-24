@@ -1,0 +1,19 @@
+# Repository configuration only; takes effect after an approved Netlify deploy.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Netlify serves existing prerendered files first (force is intentionally false).
+# This single-segment route matches React's /products/:id route.
+[[redirects]]
+  from = "/products/:id"
+  to = "/app-shell.html"
+  status = 200
+  force = false
+
+# Preserve a real 404 for unknown paths instead of serving the homepage as 200.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+  force = false
